@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Paath – Online courses and books</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<!-- ================= LOGIN / SIGN UP ================= -->
+<section id="auth">
+  <div class="auth-art">
+    <div class="logo"><span class="logo-mark"><svg class="i" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 21.5V5.5"/></svg></span>Paath</div>
+    <div>
+      <h2>Pick a course. Pick up where you left off.</h2>
+      <p>Video lessons, notes, books and practice quizzes in one place, with suggestions based on what you have already learned.</p>
+      <div class="stack" id="artStack" aria-hidden="true"></div>
+    </div>
+    <span></span>
+  </div>
+  <div class="auth-form">
+    <div class="auth-card">
+      <div class="logo"><span class="logo-mark"><svg class="i" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 21.5V5.5"/></svg></span>Paath</div>
+      <h1 id="authTitle">Create your account</h1>
+      <p class="sub" id="authSub">Free to join. Choose what you want to learn and we will suggest courses.</p>
+      <div class="seg" role="tablist">
+        <button data-a="authTab" data-v="signup" class="on" role="tab">Sign up</button>
+        <button data-a="authTab" data-v="login" role="tab">Log in</button>
+      </div>
+      <form id="authForm" novalidate>
+        <label class="field" id="fName"><span>Full name</span><input id="name" autocomplete="name" placeholder="Your name"></label>
+        <label class="field"><span>Email</span><input id="email" type="email" autocomplete="email" placeholder="you@example.com"></label>
+        <label class="field"><span>Password</span><input id="pass" type="password" autocomplete="current-password" placeholder="At least 6 characters"></label>
+        <div id="fInterests" class="field">
+          <span style="font-size:.88rem;font-weight:600;display:block;margin-bottom:8px">What do you want to learn? (optional)</span>
+          <div class="chips" id="interestChips"></div>
+        </div>
+        <p class="err" id="authErr" role="alert"></p>
+        <button class="btn block" id="authBtn" type="submit">Create account</button>
+      </form>
+      <div class="divider">or</div>
+      <button class="btn ghost block" data-a="demo">Try the demo account</button>
+      <p class="note">Front-end demo. Accounts are saved only in this browser, there is no server.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APP ================= -->
+<div id="shell" class="hidden">
+  <header class="top">
+    <div class="top-in">
+      <a class="logo" href="#/home" data-a="navHome"><span class="logo-mark"><svg class="i" viewBox="0 0 24 24"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 21.5V5.5"/></svg></span>Paath</a>
+      <div class="search" role="search">
+        <svg class="i" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="q" type="search" placeholder="Search courses, topics or teachers" aria-label="Search courses" autocomplete="off">
+        <button id="qClear" class="hidden" data-a="clearSearch" aria-label="Clear search"><svg class="i" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+      </div>
+      <div class="who">
+        <button class="avatar" id="avatar" data-a="toggleMenu" aria-label="Account menu">A</button>
+        <div class="menu hidden" id="menu">
+          <b id="mName"></b><small id="mEmail"></small>
+          <button class="btn ghost block small" data-a="logout">Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <main id="main"></main>
+  <nav class="bottom" aria-label="Main">
+    <div class="bottom-in">
+      <a href="#/home" id="navHome" data-a="navHome"><svg class="i" viewBox="0 0 24 24"><path d="m3 11 9-8 9 8"/><path d="M5 10v10h14V10"/></svg>Home</a>
+      <a href="#/library" id="navLib"><svg class="i" viewBox="0 0 24 24"><path d="M4 4v16M9 4v16"/><rect x="13" y="4" width="7" height="16" rx="1.5" transform="rotate(8 16 12)"/></svg>Library</a>
+    </div>
+  </nav>
+</div>
+
+<div id="modalRoot"></div>
+<div id="toast" role="status" aria-live="polite"></div>
+
+<script src="js/data.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
